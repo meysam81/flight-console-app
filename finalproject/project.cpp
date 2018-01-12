@@ -91,12 +91,14 @@ int main()
     infile.open("pilotlist.txt");
     outfile.open("pilotlist.txt");*/
     int code1 = 3000;
-    cout << "Welcome To Our Program For Management Airport " << endl << "Programmed By : " << endl << "Sajad Amiri " << endl << "Rasool Arjmand " << endl;
+    cout << "Welcome To Our Program For Management Airport " << endl <<
+            "Programmed By : " << endl << "Sajad Amiri " << endl << "Rasool Arjmand " << endl;
     int user=0;
     int user2 = 0, user3 = 0, user4 = 0;
     while (user != 4)
     {
-        cout << " Menu " << endl << "1 . Add New Element TO Airport " << endl << "2 . Remove Element Of Airport " << endl << "3 . Reporting " << endl << "4 . Exit ";
+        cout << " Menu " << endl << "1 . Add New Element TO Airport " << endl <<
+                "2 . Remove Element Of Airport " << endl << "3 . Reporting " << endl << "4 . Exit ";
         cout << "Choose From Menu " << endl;
         cin >> user;
         switch (user)
@@ -104,7 +106,8 @@ int main()
         case 1:
             while (user2 != 6)
             {
-                cout << "1 . Add Pilot" << endl << "2 . Add Ticket" << endl << "3 . Add Host" << endl << "4 . Add Flight" << endl << "5 . Add Airplane" << endl << "6 . back";
+                cout << "1 . Add Pilot" << endl << "2 . Add Ticket" << endl <<
+                        "3 . Add Host" << endl << "4 . Add Flight" << endl << "5 . Add Airplane" << endl << "6 . back";
                 cout << "Choose From Menu " << endl;
                 cin >> user2;
                 if (user2 == 2)
