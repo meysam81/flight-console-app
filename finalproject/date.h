@@ -34,6 +34,10 @@ public:
 	string get_month();
 	string get_day();
 
-};
+    friend ostream &operator <<(ostream &output, const date &data);
+    friend istream &operator >>(istream &input, date &data);
 
+};
+ostream &operator <<(ostream &output, const date &data);
+istream &operator >>(istream &input, date &data);
 #endif

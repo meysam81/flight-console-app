@@ -45,5 +45,18 @@ date pilot::get_hire() {
 	return hiredate;
 }
 void pilot::set_worklist(flight flight2) {
-	worklist.push_back(flight2);
+    worklist.push_back(flight2);
+}
+ostream &operator <<(ostream &output, const pilot &data)
+{
+    return output << data.name << " " << data.lname << " " << data.birthday << " "
+                  << data.nationalcode << " " << data.perssonelcode << " "
+                  << data.hiredate;
+}
+
+istream &operator >>(istream &input, pilot &data)
+{
+    return input >> data.name >> data.lname >> data.birthday
+                  >> data.nationalcode >> data.perssonelcode
+                  >> data.hiredate;
 }

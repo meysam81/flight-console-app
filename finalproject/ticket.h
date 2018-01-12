@@ -50,6 +50,10 @@ public:
 	long int return_ticketserial();
 	string get_flserial();
 	passenger get_passenger();
-	
+    friend ostream &operator <<(ostream &output, const ticket &data);
+    friend istream &operator >>(istream &input, ticket &data);
+
 };
+ostream &operator <<(ostream &output, const ticket &data);
+istream &operator >>(istream &input, ticket &data);
 #endif

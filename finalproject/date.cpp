@@ -39,3 +39,11 @@ string date::get_month() {
 string date::get_day() {
 	return day;
 }
+istream &operator >>(istream &input, date &data)
+{
+    return input >> data.day >> data.month >> data.year;
+}
+ostream &operator <<(ostream &output, const date &data)
+{
+    return output << data.day << " " << data.month << " " << data.year;
+}

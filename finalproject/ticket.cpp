@@ -29,5 +29,18 @@ string ticket::get_flserial() {
 	return flight1.get_flightserial();
 }
 passenger ticket::get_passenger() {
-	return passenger1;
+    return passenger1;
+}
+ostream &operator <<(ostream &output, const ticket &data)
+{
+    return output << data.airplane1 << " " << data.flight1 << " "
+                  << data.passenger1 << " " << data.price << " "
+                  << data.ticketserial;
+}
+
+istream &operator >>(istream &input, ticket &data)
+{
+    return input >> data.airplane1 >> data.flight1
+                 >> data.passenger1 >> data.price
+                 >> data.ticketserial;
 }

@@ -9,6 +9,7 @@ class date;
 //#include<conio.h>
 #include<string>
 #include<string.h>
+#include <cstring>
 #include<vector>
 #include<algorithm>
 //#include<alg.h>
@@ -36,5 +37,11 @@ public:
 	void get_imfo();
 	void set_tnum();
 	void get_tnum();
+
+    friend ostream &operator <<(ostream &output, const airplane &data);
+    friend istream &operator >>(istream &input, airplane &data);
+
 };
+ostream &operator <<(ostream &output, const airplane &data);
+istream &operator >>(istream &input, airplane &data);
 #endif

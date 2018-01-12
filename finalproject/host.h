@@ -43,9 +43,11 @@ public:
 	void get_imfo();
 	long int get_nationalcode();
 	void set_worklist(flight);
+    friend ostream &operator <<(ostream &output, const host &data);
+    friend istream &operator >>(istream &input, host &data);
 
 };
-
-
+ostream &operator <<(ostream &output, const host &data);
+istream &operator >>(istream &input, host &data);
 
 #endif

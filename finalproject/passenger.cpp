@@ -33,5 +33,16 @@ void passenger::get_info() {
 	cout << "father's Name  :  "<<fname<<endl;
 }
 long int passenger::get_nationalcode() {
-	return get_nationalcode();
+    return get_nationalcode();
+}
+ostream &operator <<(ostream &output, const passenger &data)
+{
+    return output << data.birthday << " " << data.fname << " "
+                  << data.lname << " " << data.name << " " << data.nationalcode;
+}
+
+istream &operator >>(istream &input, passenger &data)
+{
+    return input >> data.birthday >> data.fname
+                 >> data.lname >> data.name >> data.nationalcode;
 }

@@ -38,5 +38,18 @@ long int host::get_nationalcode() {
 	return get_nationalcode();
 }
 void host::set_worklist(flight flight2) {
-	worklist.push_back(flight2);
+    worklist.push_back(flight2);
+}
+ostream &operator <<(ostream &output, const host &data)
+{
+    return output << data.birthday << " " << data.hiredate << " "
+                  << data.lname << " " << data.name << " "
+                  << data.nationalcode << " " << data.perssonelcodeh;
+}
+
+istream &operator >>(istream &input, host &data)
+{
+    return input >> data.birthday >> data.hiredate
+                 >> data.lname >> data.name
+                 >> data.nationalcode >> data.perssonelcodeh;
 }

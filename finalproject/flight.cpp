@@ -151,3 +151,17 @@ long int flight::get_pchost(int a) {
 }
 
 
+
+ostream &operator <<(ostream &output, const flight &data)
+{
+    return output << data.airplane1 << " " << data.date1 << " " << data.destination << " "
+                  << data.flightserial << " " << data.origin << " "
+                  << (*data.pilot1) << " " << data.seatnumbers << " " << data.time1;
+}
+
+istream &operator >>(istream &input, flight &data)
+{
+    return input >> data.airplane1 >> data.date1 >> data.destination
+                  >> data.flightserial >> data.origin
+                  >> (*data.pilot1) >> data.seatnumbers >> data.time1;
+}

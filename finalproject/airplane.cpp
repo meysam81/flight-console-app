@@ -41,5 +41,15 @@ void airplane::set_tnum() {
 	tnum++;
 }
 void airplane::get_tnum() {
-	cout << tnum << endl;
+    cout << tnum << endl;
+}
+
+ostream &operator <<(ostream &output, const airplane &data)
+{
+    return output << data.pserialnum << " " << data.seatnum << " " << data.date1 << " " << data.tnum;
+}
+
+istream &operator >>(istream &input, airplane &data)
+{
+    return input >> data.pserialnum >> data.seatnum >> data.date1 >> data.tnum;
 }

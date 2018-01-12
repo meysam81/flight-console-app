@@ -78,5 +78,10 @@ public:
 	bool compare_pcode(long int code);
 	bool compare_pcode2(long int code);
 	long int get_pchost(int a);
+    friend ostream &operator <<(ostream &output, const flight &data);
+    friend istream &operator >>(istream &input, flight &data);
+
 };
+ostream &operator <<(ostream &output, const flight &data);
+istream &operator >>(istream &input, flight &data);
 #endif

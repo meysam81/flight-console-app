@@ -2,7 +2,7 @@ QT += core
 QT -= gui
 
 TARGET = test1
-CONFIG += console
+CONFIG += console c++11
 CONFIG -= app_bundle
 
 TEMPLATE = app
@@ -18,7 +18,8 @@ SOURCES += \
     finalproject/project.cpp \
     finalproject/ticket.cpp \
     finalproject/time.cpp \
-    finalproject/save.cpp
+    finalproject/save.cpp \
+    finalproject/load.cpp
 
 HEADERS += \
     finalproject/airplane.h \
@@ -30,5 +31,6 @@ HEADERS += \
     finalproject/pilot.h \
     finalproject/ticket.h \
     finalproject/time.h \
-    finalproject/save.h
+    finalproject/save.h \
+    finalproject/load.h
 

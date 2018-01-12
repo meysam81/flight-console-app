@@ -23,5 +23,14 @@ string my_time::set_minute() {
 	return "\0";
 }
 void my_time::get_time() {
-	cout << hour << " : " << minute << endl;
+    cout << hour << " : " << minute << endl;
+}
+ostream &operator <<(ostream &output, const my_time &data)
+{
+    return output << data.hour << " " << data.minute;
+}
+
+istream &operator >>(istream &input, my_time &data)
+{
+    return input >> data.hour >> data.minute;
 }

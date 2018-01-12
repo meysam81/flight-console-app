@@ -33,6 +33,12 @@ public:
 	string get_fname();
 	void get_info();
 	long int get_nationalcode();
+
+    friend ostream &operator <<(ostream &output, const passenger &data);
+    friend istream &operator >>(istream &input, passenger &data);
+
 };
+ostream &operator <<(ostream &output, const passenger &data);
+istream &operator >>(istream &input, passenger &data);
 
 #endif

@@ -43,8 +43,12 @@ public:
 	long int get_nationalcode();
 	void set_worklist(flight);
 
+    friend ostream &operator <<(ostream &output, const pilot &data);
+    friend istream &operator >>(istream &input, pilot &data);
 
 };
+ostream &operator <<(ostream &output, const pilot &data);
+istream &operator >>(istream &input, pilot &data);
 
 
 
