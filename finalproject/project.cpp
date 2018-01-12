@@ -2,19 +2,19 @@
 
 
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 #include<string>
 #include<math.h>
 #include<vector>
 #include<algorithm>
-#include<alg.h>
+//#include<alg.h>
 #include<fstream>
 #include<sstream>
 
 
 class date;
 #include "date.h"
-class time;
+class my_time;
 #include "time.h"
 class human;
 #include "human.h"
@@ -221,7 +221,7 @@ int main()
 					int i;
 					host host1;
 					airplane airplane1;
-					pilot pilot1;
+                    pilot *pilot1;
 					int q = airplanelist.end() - airplanelist.begin();
 					for (i = 0; i < q; i++)
 					{
@@ -255,7 +255,7 @@ int main()
 					{
 						if (compare1(serial2, pilotlist[i].get_perssonelcode()))
 						{
-							pilot1 = pilotlist[i];
+                            (*pilot1) = pilotlist[i];
 						}
 					}
 
@@ -275,7 +275,7 @@ int main()
 					date1.set_month();
 					date1.set_day();
 					cout << "Flight Time  " << endl;
-					time time1;
+					my_time time1;
 					time1.set_hour();
 					time1.set_minute();
 					int r = hostlist.end() - hostlist.begin();
@@ -755,5 +755,5 @@ int main()
 
 
 		}
-	_getch();
+//	_getch();
 }

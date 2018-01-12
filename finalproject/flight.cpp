@@ -9,12 +9,12 @@ flight::flight() {
 	flightserial = "";
 	origin = "";
 	destination = "";
-	pilot1;
+    pilot1 = new pilot();
 	date1;
 	time1;
 	airplane1;
 }
-flight::flight(pilot pilot2, host host2 , host host3 , host host4 ,date date2,time time2, string fserial , string origin1 , string destination1
+flight::flight(pilot *pilot2, host host2 , host host3 , host host4 ,date date2,my_time time2, string fserial , string origin1 , string destination1
 , int tseat) : pilot1(pilot2) , date1(date2) , time1(time2)
 , flightserial(fserial) , origin(origin1) , destination(destination1) , seatnumbers(tseat)
 {
@@ -47,8 +47,8 @@ string flight::get_destination() {
 	return destination;
 }
 void flight::get_imfo() {
-	cout<<"Pilot's Perssonelcode  :  "<<pilot1.get_perssonelcode()<<endl;
-	pilot1.get_name();
+    cout<<"Pilot's Perssonelcode  :  "<<pilot1->get_perssonelcode()<<endl;
+    pilot1->get_name();
 	cout << "Flight's Serial Number  :  " <<flightserial<< endl;
 	cout << "Flight's Date  :  ";
 	date1.get_date();
@@ -64,7 +64,7 @@ string flight::get_ps() {
 	return airplane1.get_pserialnum();
 }
 long int flight::get_pc() {
-	return pilot1.get_perssonelcode();
+    return pilot1->get_perssonelcode();
 }
 void flight::clean_host(long int h) {
 	int i;

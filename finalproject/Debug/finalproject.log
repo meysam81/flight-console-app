@@ -1,0 +1,9 @@
+﻿  project.cpp
+  pilot.cpp
+c:\users\lenovo\documents\visual studio 2017\projects\finalproject\finalproject\flight.h(56): error C2079: 'flight::pilot1' uses undefined class 'pilot'
+  Generating Code...
+  Compiling...
+  host.cpp
+  flight.cpp
+  Generating Code...
+c:\users\lenovo\documents\visual studio 2017\projects\finalproject\finalproject\host.cpp(39): warning C4717: 'host::get_nationalcode': recursive on all control paths, function will cause runtime stack overflow

@@ -9,7 +9,7 @@ class host;
 class date;
 class airplane;
 class passenger;
-class time;
+class my_time;
 
 #include<iostream>
 //#include<conio.h>
@@ -45,7 +45,7 @@ bool compare(string a, string b); /*{
 
 }*/
 
-class pilot;
+//class pilot;
 class flight 
 {
 protected:
@@ -53,15 +53,15 @@ protected:
 	string origin;
 	string destination;
 	int seatnumbers;
-	pilot pilot1;
+    pilot *pilot1;
 	date date1;
-	time time1;
+    my_time time1;
 	airplane airplane1;
 	vector <pilot> palist;
 	vector <host> hostlist;
 public:
 	flight();
-	flight(pilot pilot2 , host host2 ,host host3 , host host4 , date date2 , time time2 , string fserial , string origin1 
+    flight(pilot *pilot2 , host host2 ,host host3 , host host4 , date date2 , my_time time2 , string fserial , string origin1
 		, string destination1, int tseat);
 	string set_flightserial();
 	string set_origin();

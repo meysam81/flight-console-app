@@ -25,7 +25,7 @@ class flight;
 
 using namespace std;
 
-class flight;
+//class flight;
 class pilot : public human
 {
 protected:

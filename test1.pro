@@ -7,7 +7,7 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp \
+SOURCES += \
     finalproject/airplane.cpp \
     finalproject/date.cpp \
     finalproject/flight.cpp \

@@ -11,7 +11,7 @@ class date;
 class airplane;
 class passenger;
 class flight;
-class time;
+class my_time;
 
 
 #include<iostream>

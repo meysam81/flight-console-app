@@ -20,13 +20,13 @@ using namespace std;
 
 
 
-class time
+class my_time
 {
 protected:
 	string hour;
 	string minute;
 public:
-	time();
+    my_time();
 	string set_hour();
 	string set_minute();
 	void get_time();
