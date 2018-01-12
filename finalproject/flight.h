@@ -12,12 +12,12 @@ class passenger;
 class time;
 
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 #include<string>
 #include<string.h>
 #include<vector>
 #include<algorithm>
-#include<alg.h>
+//#include<alg.h>
 
 
 #include "pilot.h"

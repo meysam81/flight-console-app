@@ -8,12 +8,12 @@
 
 
 #include<iostream>
-#include<conio.h>
+//#include<conio.h>
 #include<string>
 #include<math.h>
 #include<vector>
 #include<algorithm>
-#include<alg.h>
+//#include<alg.h>
 class date;
 
 
