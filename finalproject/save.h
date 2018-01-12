@@ -15,7 +15,7 @@ enum class target // for different types of saves that we have
     HOST,
     PASSENGER,
     PILOT,
-    PLANE,
+    AIRPLANE,
     TICKET
 };
 
@@ -34,12 +34,11 @@ class save
 {
 
 private:
-    bool overWrite;
     fstream saveFile;
 
     bool openFile(string &fileLocation);
 public:
-    save(bool overWrite);
+    save();
     bool writeToFile(target &targetFile, vector<T> &recordVector);
 
 };

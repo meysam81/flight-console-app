@@ -7,41 +7,39 @@ bool save<T>::openFile(string &fileLocation)
     return saveFile.is_open();
 }
 template <class T>
-save<T>::save(bool overWrite) : overWrite(overWrite) // constructor as you may already know
+save<T>::save() // constructor as you may already know
 {
 
 }
 template <class T>
 bool save<T>::writeToFile(target &targetFile, vector<T> &recordVector)
 {
-    // the use of 'auto' keyword is ONLY allowed in c++11 and the following code gets the current time
-    auto currentTime = chrono::system_clock::now(); // to be used in saving file
 
-    string titleOfFile = to_string(chrono::system_clock::to_time_t(currentTime));
+    string titleOfFile;
     bool write = false;
     switch (targetFile) {
     case target::FLIGHT:
-        titleOfFile = "Flight-" + titleOfFile;
+        titleOfFile = "Flight.txt";
         write = true;
         break;
     case target::HOST:
-        titleOfFile = "Host-" + titleOfFile;
+        titleOfFile = "Host.txt";
         write = true;
         break;
     case target::PASSENGER:
-        titleOfFile = "Passenger-" + titleOfFile;
+        titleOfFile = "Passenger.txt";
         write = true;
         break;
     case target::PILOT:
-        titleOfFile = "Pilot-" + titleOfFile;
+        titleOfFile = "Pilot.txt";
         write = true;
         break;
-    case target::PLANE:
-        titleOfFile = "Plane-" + titleOfFile;
+    case target::AIRPLANE:
+        titleOfFile = "Airplane.txt";
         write = true;
         break;
     case target::TICKET:
-        titleOfFile = "Ticket-" + titleOfFile;
+        titleOfFile = "Ticket.txt";
         write = true;
         break;
     default:
