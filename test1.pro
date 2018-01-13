@@ -17,9 +17,7 @@ SOURCES += \
     finalproject/pilot.cpp \
     finalproject/project.cpp \
     finalproject/ticket.cpp \
-    finalproject/time.cpp \
-    finalproject/save.cpp \
-    finalproject/load.cpp
+    finalproject/time.cpp
 
 HEADERS += \
     finalproject/airplane.h \
@@ -30,7 +28,5 @@ HEADERS += \
     finalproject/passenger.h \
     finalproject/pilot.h \
     finalproject/ticket.h \
-    finalproject/time.h \
-    finalproject/save.h \
-    finalproject/load.h
+    finalproject/time.h
 
