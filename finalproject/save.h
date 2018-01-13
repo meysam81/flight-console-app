@@ -23,7 +23,7 @@ enum class target // for different types of saves that we have
  * this allows us to use different tyes that we have in our program
  * for example consider the following use of writeToFIle method:
  *  * writeToFile(PILOT, vector<pilot> pilotVector), or
- *  * writeTOFile(TICKET, vector<ticket> ticketVector)
+ *  * writeToFile(TICKET, vector<ticket> ticketVector)
  *
  *
  * for further study please refer to the following URL:
@@ -39,7 +39,7 @@ private:
     bool openFile(string &fileLocation);
 public:
     save();
-    bool writeToFile(target &targetFile, vector<T> &recordVector);
+    bool writeToFile(target targetFile, vector<T> &recordVector);
 
 };
 

@@ -12,7 +12,7 @@ save<T>::save() // constructor as you may already know
 
 }
 template <class T>
-bool save<T>::writeToFile(target &targetFile, vector<T> &recordVector)
+bool save<T>::writeToFile(target targetFile, vector<T> &recordVector)
 {
 
     string titleOfFile;
