@@ -1,6 +1,7 @@
 
-
-
+#include <fstream>
+#include "save.h"
+#include "load.h"
 #include<iostream>
 //#include<conio.h>
 #include<string>
@@ -84,6 +85,180 @@ long int ticketserial=1000;
 
 
 //int counter::count = 3000;
+
+bool saveMyFile()
+{
+    for (int i = 1; i <= 6; ++i) {
+        fstream saveFile;
+        switch (i) {
+        case 1:
+            saveFile.open("Flight.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : flightlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 2:
+            saveFile.open("Host.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : hostlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 3:
+            saveFile.open("Passenger.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : passengerlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 4:
+            saveFile.open("Pilot.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : pilotlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 5:
+            saveFile.open("Airplane.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : airplanelist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 6:
+            saveFile.open("Ticket.txt", ios_base::out);
+            if (saveFile.is_open())
+            {
+                for (auto i : ticketlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+
+        default:
+            break;
+        }
+    }
+    cout << "Done.\n";
+    return true;
+}
+
+bool loadMyFile()
+{
+    /*
+    vector<pilot> pilotlist;
+    vector<ticket> ticketlist;
+    vector<host> hostlist;
+    vector<flight> flightlist;
+    vector<airplane> airplanelist;
+    vector<host> flighthost;
+    vector<passenger> passengerlist;
+    vector<passenger> flightpassenger;
+    vector<date> birthday;
+    vector<long int> nationalcode;
+
+        FLIGHT = 1,
+        HOST,
+        PASSENGER,
+        PILOT,
+        AIRPLANE,
+        TICKET
+    */
+    for (int i = 1; i <= 6; ++i) {
+        fstream loadFile;
+        switch (i) {
+        case 1:
+            loadFile.open("Flight.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                flight i;
+                while (loadFile >> i)
+                    flightlist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+        case 2:
+            loadFile.open("Host.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                host i;
+                while (loadFile >> i)
+                    hostlist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+        case 3:
+            loadFile.open("Passenger.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                passenger i;
+                while (loadFile >> i)
+                    passengerlist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+        case 4:
+            loadFile.open("Pilot.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                pilot i;
+                while (loadFile >> i)
+                    pilotlist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+        case 5:
+            loadFile.open("Airplane.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                airplane i;
+                while (loadFile >> i)
+                    airplanelist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+        case 6:
+            loadFile.open("Ticket.txt", ios_base::in);
+            if (loadFile.is_open())
+            {
+                ticket i;
+                while (loadFile >> i)
+                    ticketlist.push_back(i);
+            }
+            loadFile.flush();
+            loadFile.close();
+            break;
+
+        default:
+            break;
+        }
+    }
+    cout << "Done.\n";
+    return true;
+}
+
 int main()
 {
     /*ifstream infile;
@@ -95,10 +270,11 @@ int main()
             "Programmed By : " << endl << "Sajad Amiri " << endl << "Rasool Arjmand " << endl;
     int user=0;
     int user2 = 0, user3 = 0, user4 = 0;
-    while (user != 4)
+    while (user != 6)
     {
-        cout << " Menu " << endl << "1 . Add New Element TO Airport " << endl <<
-                "2 . Remove Element Of Airport " << endl << "3 . Reporting " << endl << "4 . Exit ";
+        cout << " Menu " << endl << "1 . Add New Element To Airport " << endl <<
+                "2 . Remove Element Of Airport " << endl << "3 . Reporting " << endl <<
+                "4 . Save to file" << endl << "5 . Load from file" << endl << "6 . Exit ";
         cout << "Choose From Menu " << endl;
         cin >> user;
         switch (user)
@@ -749,6 +925,18 @@ int main()
             }while (user4 < 6 && user4 > 0);
             break;
 
+
+        case 4:
+            saveMyFile();
+            break;
+        case 5:
+            loadMyFile();
+            break;
+        case 6:
+            exit(0);
+            break;
+        default:
+            break;
 
             //**********************bakhsh 4 gozareshgiri tashih shavad**************
 

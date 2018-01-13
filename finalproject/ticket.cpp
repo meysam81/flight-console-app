@@ -10,6 +10,11 @@
 using namespace std;
 
 
+ticket::ticket()
+{
+
+}
+
 ticket::ticket(flight flight2, passenger passenger2, string price1,long int code) : flight1(flight2), passenger1(passenger2), price(price1)
  , ticketserial(code)
 {

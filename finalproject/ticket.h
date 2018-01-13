@@ -44,6 +44,7 @@ protected:
 	airplane airplane1;
 	long int ticketserial;
 public:
+    ticket();
 	ticket (flight flight2 , passenger passenger2 , string price1 ,long int code);
 	string set_price();
 	string get_price();
