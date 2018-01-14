@@ -27,7 +27,7 @@ void my_time::get_time() {
 }
 ostream &operator <<(ostream &output, const my_time &data)
 {
-    return output << data.hour << " " << data.minute;
+    return output << data.hour << " " << data.minute << endl;
 }
 
 istream &operator >>(istream &input, my_time &data)

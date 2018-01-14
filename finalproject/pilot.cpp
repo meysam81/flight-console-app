@@ -25,18 +25,18 @@ long int pilot::get_perssonelcode() {
 }
 void pilot::get_imfo() {
 	cout << "Pilot  " << endl;
-	cout << "Name  :  " << get_name() << endl;
-	cout << "Last Name  :  " << get_lname() << endl;
-	cout << "Nationalcode  :  " << get_nationalcode();
-	cout << "Birthday  :  ";
+    cout << "Name  :  " << this->get_name() << endl;
+    cout << "Last Name  :  " << this->get_lname() << endl;
+    cout << "Nationalcode  :  " << this->get_nationalcode();
+    cout << "\nBirthday  :  ";
 	show_birth();
-	cout << "Perssonelcode  :  "<<perssonelcode<<endl;
+    cout << "Perssonelcode  :  "<<this->perssonelcode<<endl;
 }
 void pilot::get_worklist() {
 	
 }
 long int pilot::get_nationalcode() {
-	return get_nationalcode();
+    return this->nationalcode;
 }
 void pilot::set_hire(date date2) {
 	hiredate = date2;
@@ -49,9 +49,10 @@ void pilot::set_worklist(flight flight2) {
 }
 ostream &operator <<(ostream &output, const pilot &data)
 {
-    return output << data.name << " " << data.lname << " " << data.birthday << " "
-                  << data.nationalcode << " " << data.perssonelcode << " "
-                  << data.hiredate;
+    output << data.name << " " << data.lname << " " << data.birthday << " "
+            << data.nationalcode << " " << data.perssonelcode << " "
+            << data.hiredate << endl;
+    return output;
 }
 
 istream &operator >>(istream &input, pilot &data)

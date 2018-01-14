@@ -156,7 +156,7 @@ ostream &operator <<(ostream &output, const flight &data)
 {
     return output << data.airplane1 << " " << data.date1 << " " << data.destination << " "
                   << data.flightserial << " " << data.origin << " "
-                  << (*data.pilot1) << " " << data.seatnumbers << " " << data.time1;
+                  << (*data.pilot1) << " " << data.seatnumbers << " " << data.time1 << endl;
 }
 
 istream &operator >>(istream &input, flight &data)

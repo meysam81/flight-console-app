@@ -35,7 +35,7 @@ void host::get_imfo() {
 	birthday.get_date();
 }
 long int host::get_nationalcode() {
-	return get_nationalcode();
+    return this->nationalcode;
 }
 void host::set_worklist(flight flight2) {
     worklist.push_back(flight2);
@@ -44,7 +44,7 @@ ostream &operator <<(ostream &output, const host &data)
 {
     return output << data.birthday << " " << data.hiredate << " "
                   << data.lname << " " << data.name << " "
-                  << data.nationalcode << " " << data.perssonelcodeh;
+                  << data.nationalcode << " " << data.perssonelcodeh << endl;
 }
 
 istream &operator >>(istream &input, host &data)

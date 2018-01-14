@@ -40,7 +40,7 @@ ostream &operator <<(ostream &output, const ticket &data)
 {
     return output << data.airplane1 << " " << data.flight1 << " "
                   << data.passenger1 << " " << data.price << " "
-                  << data.ticketserial;
+                  << data.ticketserial << endl;
 }
 
 istream &operator >>(istream &input, ticket &data)

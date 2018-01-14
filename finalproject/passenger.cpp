@@ -38,7 +38,7 @@ long int passenger::get_nationalcode() {
 ostream &operator <<(ostream &output, const passenger &data)
 {
     return output << data.birthday << " " << data.fname << " "
-                  << data.lname << " " << data.name << " " << data.nationalcode;
+                  << data.lname << " " << data.name << " " << data.nationalcode << endl;
 }
 
 istream &operator >>(istream &input, passenger &data)

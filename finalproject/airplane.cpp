@@ -46,7 +46,7 @@ void airplane::get_tnum() {
 
 ostream &operator <<(ostream &output, const airplane &data)
 {
-    return output << data.pserialnum << " " << data.seatnum << " " << data.date1 << " " << data.tnum;
+    return output << data.pserialnum << " " << data.seatnum << " " << data.date1 << " " << data.tnum << endl;
 }
 
 istream &operator >>(istream &input, airplane &data)

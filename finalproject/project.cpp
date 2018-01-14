@@ -1,7 +1,5 @@
 
 #include <fstream>
-#include "save.h"
-#include "load.h"
 #include<iostream>
 //#include<conio.h>
 #include<string>
@@ -86,6 +84,80 @@ long int ticketserial=1000;
 
 //int counter::count = 3000;
 
+bool appendToFile()
+{
+    for (int i = 1; i <= 6; ++i) {
+        fstream saveFile;
+        switch (i) {
+        case 1:
+            saveFile.open("Flight.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : flightlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 2:
+            saveFile.open("Host.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : hostlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 3:
+            saveFile.open("Passenger.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : passengerlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 4:
+            saveFile.open("Pilot.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : pilotlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 5:
+            saveFile.open("Airplane.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : airplanelist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+        case 6:
+            saveFile.open("Ticket.txt", ios_base::app);
+            if (saveFile.is_open())
+            {
+                for (auto i : ticketlist)
+                    saveFile << i;
+            }
+            saveFile.flush();
+            saveFile.close();
+            break;
+
+        default:
+            break;
+        }
+    }
+    cout << "Done.\n";
+    return true;
+}
+
 bool saveMyFile()
 {
     for (int i = 1; i <= 6; ++i) {
@@ -162,25 +234,6 @@ bool saveMyFile()
 
 bool loadMyFile()
 {
-    /*
-    vector<pilot> pilotlist;
-    vector<ticket> ticketlist;
-    vector<host> hostlist;
-    vector<flight> flightlist;
-    vector<airplane> airplanelist;
-    vector<host> flighthost;
-    vector<passenger> passengerlist;
-    vector<passenger> flightpassenger;
-    vector<date> birthday;
-    vector<long int> nationalcode;
-
-        FLIGHT = 1,
-        HOST,
-        PASSENGER,
-        PILOT,
-        AIRPLANE,
-        TICKET
-    */
     for (int i = 1; i <= 6; ++i) {
         fstream loadFile;
         switch (i) {
@@ -189,8 +242,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 flight i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     flightlist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -200,8 +255,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 host i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     hostlist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -211,8 +268,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 passenger i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     passengerlist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -222,8 +281,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 pilot i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     pilotlist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -233,8 +294,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 airplane i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     airplanelist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -244,8 +307,10 @@ bool loadMyFile()
             if (loadFile.is_open())
             {
                 ticket i;
-                while (loadFile >> i)
+                while (loadFile) {
+                    loadFile >> i;
                     ticketlist.push_back(i);
+                }
             }
             loadFile.flush();
             loadFile.close();
@@ -270,11 +335,13 @@ int main()
             "Programmed By : " << endl << "Sajad Amiri " << endl << "Rasool Arjmand " << endl;
     int user=0;
     int user2 = 0, user3 = 0, user4 = 0;
-    while (user != 6)
+    while (true)
     {
         cout << " Menu " << endl << "1 . Add New Element To Airport " << endl <<
                 "2 . Remove Element Of Airport " << endl << "3 . Reporting " << endl <<
-                "4 . Save to file" << endl << "5 . Load from file" << endl << "6 . Exit ";
+                "4 . Save to file (overwrite)" << endl << "5 . Load from file" << endl
+             << "6.  Append to saved file\n"
+             << "7 . Exit ";
         cout << "Choose From Menu " << endl;
         cin >> user;
         switch (user)
@@ -434,7 +501,7 @@ int main()
                     {
                         if (compare1(serial2, pilotlist[i].get_perssonelcode()))
                         {
-                            (*pilot1) = pilotlist[i];
+                            pilot1 = new pilot(pilotlist[i]);
                         }
                     }
 
@@ -700,7 +767,9 @@ int main()
                      << endl << "4 . Show Perssenel's Work list  " << endl << "5 . Show information With Nationalcode  " << endl << "6 . Back" << endl;
                 int user4;
                 cin >> user4;
-                if (user4 == 1)
+                switch (user4)
+                {
+                case 1:
                 {
                     date date1;
                     cout << "Enter You're Date  " << endl;
@@ -720,9 +789,9 @@ int main()
                         }
                     }
                 }
-
-                //az koochek tar be bozorg tar
-                if (user4 = 2)
+                    break;
+                    //az koochek tar be bozorg tar
+                case 2:
                 {
                     int w = birthday.end() - birthday.begin();
                     int q = passengerlist.end() - passengerlist.begin();
@@ -812,26 +881,28 @@ int main()
                         }
                     }
                 }
+                    break;
 
-                //nationalcode
-                if (user4 == 3)
+                    //nationalcode
+                case 3:
                 {
-                    int q = pilotlist.end() - pilotlist.begin();
-                    int w = hostlist.end() - hostlist.begin();
+                    int toulePilot = pilotlist.end() - pilotlist.begin();
+                    int touleHost = hostlist.end() - hostlist.begin();
                     int i, j;
                     long int n;
-                    for (i = 0; i < q; i++)
+
+                    for (i = 0; i < toulePilot; i++)
                     {
                         n = pilotlist[i].get_nationalcode();
                         nationalcode.push_back(n);
                     }
-                    for (i = 0; i < w; i++)
+                    for (i = 0; i < touleHost; i++)
                     {
                         n = hostlist[i].get_nationalcode();
                         nationalcode.push_back(n);
                     }
                     int s = nationalcode.end() - nationalcode.begin();
-                    for (i = 1; i < s; i++)
+                    for (i = 0; i < s; i++)
                     {
                         n = nationalcode[i];
                         for (j = i; j > 0; j--)
@@ -845,7 +916,7 @@ int main()
                     for (i = 0; i < s; i++)
                     {
                         long int a = nationalcode[i];
-                        for (j = 0; j < q; j++)
+                        for (j = 0; j < toulePilot; j++)
                         {
                             long int b = pilotlist[j].get_nationalcode();
                             if (a == b)
@@ -853,7 +924,7 @@ int main()
                                 pilotlist[j].get_imfo();
                             }
                         }
-                        for (j = 0; j < w; j++)
+                        for (j = 0; j < touleHost; j++)
                         {
                             long int b = hostlist[j].get_nationalcode();
                             if (a == b)
@@ -865,9 +936,10 @@ int main()
 
 
                 }
+                    break;
 
 
-                if (user4 == 4)
+                case 4:
                 {
                     long int pcode;
                     cout << "Enter Perssonelcode   " << endl;
@@ -888,8 +960,8 @@ int main()
                         }
                     }
                 }
-
-                if (user4 == 5)
+                    break;
+                case 5:
                 {
                     long int ncode;
                     int i;
@@ -922,6 +994,10 @@ int main()
                         }
                     }
                 }
+                    break;
+                default:
+                    break;
+                }
             }while (user4 < 6 && user4 > 0);
             break;
 
@@ -933,6 +1009,9 @@ int main()
             loadMyFile();
             break;
         case 6:
+            appendToFile();
+            break;
+        case 7:
             exit(0);
             break;
         default:
@@ -948,3 +1027,4 @@ int main()
     }
     //	_getch();
 }
+
